@@ -39,4 +39,4 @@ services:
     volumes:
       - ./face-emotion/:/app/
     ports:
-      - 8003:8000
+      - 8002:8000
