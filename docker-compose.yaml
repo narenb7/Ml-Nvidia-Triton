@@ -25,18 +25,20 @@ services:
       - face_bokeh_service
       - face_emotion_service
 
-  face_bokeh_service:
-    build: ./face-bokeh
-    container_name: docker-face_bokeh
-    volumes:
-      - ./face-bokeh/:/app/
-    ports:
-      - 8001:8000
-
   face_emotion_service:
     build: ./face-emotion
     container_name: docker-face_emotion
     volumes:
       - ./face-emotion/:/app/
     ports:
+      - 8001:8000
+
+  face_bokeh_service:
+    build: ./face-bokeh
+    container_name: docker-face_bokeh
+    volumes:
+      - ./face-bokeh/:/app/
+    ports:
       - 8002:8000
+
+
