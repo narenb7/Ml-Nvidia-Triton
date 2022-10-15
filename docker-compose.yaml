@@ -1,0 +1,43 @@
+version: '1.1'
+services:
+  triton_inference:
+    build: .
+    container_name: triton-docker
+    image:
+    env_file: .aws.env
+    ports:
+      - 8000:8000
+    command: ["tritonserver". "--model-repository=s3://narenb-s3/models/"]
+    volumes:
+      - ./:/app/
+    depends_on:
+      - face_bokeh_service 
+      - face_emotion_service
+      - Main_service
+
+  Main_service:
+    build: .
+    volumes:
+      - ./:/app/
+    ports:
+      - 8003:8000
+    depends_on:
+      - face_bokeh_service
+      - face_emotion_service
+
+  face_bokeh_service:
+    build: ./face-bokeh
+    container_name: docker-face_bokeh
+    image:
+    volumes:
+      - ./face-bokeh/:/app/
+    ports:
+      - 8001:8000
+
+  face_emotion_service:
+    build: ./face-emotion
+    container_name: docker-face_emotion
+    volumes:
+      - ./face-emotion/:/app/
+    ports:
+      - 8003:8000
