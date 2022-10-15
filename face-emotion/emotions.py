@@ -1,5 +1,5 @@
-#import tritonhttpclient
-import tritonclient.http
+import tritonhttpclient
+#import tritonclient.http
 import numpy as np
 import cv2
 

@@ -1,8 +1,8 @@
 import os
 import cv2
 import numpy as np
-#import tritonhttpclient
-import tritonclient.http
+import tritonhttpclient
+#import tritonclient.http
 from scipy.special import softmax
 from icrawler.builtin import GoogleImageCrawler
 
