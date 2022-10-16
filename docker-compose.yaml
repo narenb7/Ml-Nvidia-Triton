@@ -1,9 +1,10 @@
-version: '1.1'
+version: '3'
 services:
   triton_inference:
-    build: .
+    image: nvcr.io/nvidia/tritonserver:22.06-py3
     container_name: triton-docker
-    env_file: .aws.env
+    env_file: 
+      - .aws.env
     ports:
       - 8000:8000
     command: ["tritonserver", "--model-repository=s3://narenb-s3/models/"]
