@@ -4,7 +4,7 @@ max_batch_size : 0
 input [
   {
     name: "ImageTensor"
-    data_type: TYPE_FP32
+    data_type: TYPE_UINT8
     dims: [ -1, 513, 513, 3 ]
   }
 ]
