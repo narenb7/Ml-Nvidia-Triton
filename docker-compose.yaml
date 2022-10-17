@@ -18,6 +18,7 @@ services:
       - ./:/app/
     ports:
       - 8000:8000
+    platform: linux/amd64
     depends_on:
       - face_bokeh_service
       - face_emotion_service
@@ -29,6 +30,7 @@ services:
       - ./face-emotion/:/app/
     ports:
       - 8001:8000
+    platform: linux/amd64
 
   face_bokeh_service:
     build: ./face-bokeh
@@ -37,5 +39,6 @@ services:
       - ./face-bokeh/:/app/
     ports:
       - 8002:8000
+    platform: linux/amd64
 
 
