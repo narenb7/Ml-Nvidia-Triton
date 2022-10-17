@@ -1,5 +1,5 @@
 name: "face-emotion"
-platform: "tensorflow_savemodel"
+platform: "tensorflow_savedmodel"
 max_batch_size : 0
 input [
   {
