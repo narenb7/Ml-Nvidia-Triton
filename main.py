@@ -6,16 +6,15 @@ import requests
 # Generate a FastAPI instance called `app` with the title 'Triton Health Check'
 # https://fastapi.tiangolo.com/
 
-app = FastAPI()
+app = FastAPI(title="Triton Health Check")
 
+#Call your get function for a health Check
+#to receive both (face-bokeh and face-emotion)
 @app.get("/", tags=["Health Check"])
 async def root():
-
-
-     r1 = requests.get("http://ec2-54-157-42-29.compute-1.amazonaws.com:8001/")
-     r2 = requests.get("http://ec2-54-157-42-29.compute-1.amazonaws.com:8002/")
-     return r1.text, r2.text
-
+    response_face_bokeh = requests.get("http://face_bokeh_service:8000/")
+    response_face_emotion = requests.get("http://face_emotion_service:8000/")
+    return [response_face_bokeh.content, response_face_emotion.content]
 
 #Call your get function for a health Check
 #to receive both (face-bokeh and face-emotion)
