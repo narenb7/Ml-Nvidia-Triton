@@ -7,7 +7,8 @@ services:
       - .aws.env
     ports:
       - 8003:8000
-    command: ["tritonserver", "--model-repository=s3://narenb-s3/models/", "--exit-on-error=false"]
+    command: ["tritonserver", "--model-repository=s3://narenb-s3/models/"]
+    #command: ["tritonserver", "--model-repository=s3://narenb-s3/models/", "--exit-on-error=false"]
     volumes:
       - ./:/app/
 
